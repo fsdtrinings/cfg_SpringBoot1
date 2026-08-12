@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,6 +42,17 @@ public class Student {
 	private Address address;
 	
 	private int year;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "laptop_Number")
+	private Laptop laptop;
+	
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "enrolledCourse")
+	private Course course;
+	
 
 	public Student(String studentName, String department, int marks, int year) {
 		super();
@@ -51,10 +63,7 @@ public class Student {
 	}
 
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "laptop_Number")
-	private Laptop laptop;
-	
+
 
 	
 	

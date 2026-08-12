@@ -23,6 +23,15 @@ public interface IStudentRepository extends JpaRepository<Student, Integer>
 	
 	public List<Student> findByLaptopBrandNameAndAddressCityAndMarksGreaterThan(String brandName,String city,int marks);
 	
+	
+	public List<Student> findByCourseCourseNameAndMarksAndYear(String courseName,int marks,int year);
+	
+	/*
+	 *  count students where based on courseName and location and marks is greater than X
+	 * 
+	 * count total number of students in CSC using latop which expire in year 2026
+	 * */
+	
 }
 
 

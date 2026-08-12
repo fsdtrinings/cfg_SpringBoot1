@@ -27,7 +27,7 @@ public class Laptop {
 	
 	
 	@OneToOne(mappedBy = "laptop",cascade = CascadeType.ALL)
-	@JsonBackReference
+	@JsonBackReference // ignore bi-driectional looping issue in one to one
 	private Student student;
 
 }
