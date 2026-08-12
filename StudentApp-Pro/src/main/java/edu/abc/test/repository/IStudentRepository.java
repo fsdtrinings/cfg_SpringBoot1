@@ -12,7 +12,16 @@ import edu.abc.test.entity.Student;
 public interface IStudentRepository extends JpaRepository<Student, Integer>
 {
 
-
+	public List<Student> findByDepartment(String department);
+	
+	
+	public List<Student> findByDepartmentAndYear(String department,int year);
+	
+	
+	
+	public List<Student> findByAddressCity(String city);
+	
+	public List<Student> findByLaptopBrandNameAndCityAndMarksGreaterThan(String brandName,String city,int marks);
 	
 }
 

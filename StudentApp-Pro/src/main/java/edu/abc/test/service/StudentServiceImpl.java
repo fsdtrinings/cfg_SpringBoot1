@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.abc.test.entity.Address;
+import edu.abc.test.entity.Laptop;
 import edu.abc.test.entity.Student;
 import edu.abc.test.repository.IStudentRepository;
 import jakarta.transaction.Transactional;
@@ -16,6 +17,9 @@ public class StudentServiceImpl implements IStudentService {
 
 	@Autowired
 	IStudentRepository studentRepository;
+	
+	@Autowired
+	ILaptopService laptopService;
 
 	@Override
 	@Transactional
@@ -66,18 +70,66 @@ public class StudentServiceImpl implements IStudentService {
 	
 	
 	@Override
+	@Transactional
+	public Student linkLaptop(int sid, int lid) {
+		
+		Student student = getStudentById(sid);
+		Laptop laptop = laptopService.getLaptopByID(lid);
+		
+		if(student!=null && laptop !=null)
+		{
+			student.setLaptop(laptop);
+			return student;
+		}
+		else	return null;
+	}
+	
+	
+	
+	
+	
+
+	@Override
 	public Student getStudentById(int id) {
-		return null;
+		// some code
+		return studentRepository.findById(id).get();
 	}
 
 	@Override
 	public List<Student> getStudentByDepartment(String department) {
+		
+		if(department!=null && department.length()>1)
+		{
+			return studentRepository.findByDepartment(department);
+		}
 		return null;
+		
+		
 	}
 
 	@Override
 	public List<Student> getStudentByDepartmentAndYear(String department, int year) {
-		return null;
+		
+		return studentRepository.findByDepartmentAndYear(department,year);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

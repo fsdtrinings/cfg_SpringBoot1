@@ -22,8 +22,38 @@ public interface IStudentService {
 	public List<Student> getStudentByDepartmentAndYear(String department,int year);
 	
 	public Student updateStudentAddress(int id,Address address);
+	
+	
+	public Student linkLaptop(int sid,int lid);
+	
+	// -------------------------------------------
+	
+
+	
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

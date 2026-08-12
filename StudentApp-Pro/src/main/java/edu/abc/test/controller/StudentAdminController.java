@@ -7,9 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.abc.test.entity.Student;
@@ -45,4 +48,39 @@ public class StudentAdminController {
 	}
 	
 	
+	
+	//   localhost:7080/cgc/admin/student/laptop?sid=1&lid=123
+	@PutMapping("/student/laptop")
+	public Student linkLaptopWithStudent(@RequestParam( required =  true) int sid , @RequestParam int laptopid)
+	{
+		return studentService.linkLaptop(sid, laptopid);
+	}
+	
+	
+	
+	
+	@GetMapping("/student/department/{dname}")
+	public ResponseEntity<List<Student>> getStudentsByDepartment(@PathVariable String dname)
+	{
+		
+		List<Student> allStudents = studentService.getStudentByDepartment(dname);
+		
+		
+		return new ResponseEntity<List<Student>>(allStudents,HttpStatus.OK);
+	}
+	
+	
 }//end class
+
+
+
+
+
+
+
+
+
+
+
+
+
