@@ -51,7 +51,7 @@ public class Student {
 	}
 
 
-	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "laptop_Number")
 	private Laptop laptop;
 	

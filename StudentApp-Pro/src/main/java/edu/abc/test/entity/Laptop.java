@@ -2,6 +2,9 @@ package edu.abc.test.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -23,7 +26,8 @@ public class Laptop {
 	private String configurations;
 	
 	
-	@OneToOne(mappedBy = "laptop")
+	@OneToOne(mappedBy = "laptop",cascade = CascadeType.ALL)
+	@JsonBackReference
 	private Student student;
 
 }

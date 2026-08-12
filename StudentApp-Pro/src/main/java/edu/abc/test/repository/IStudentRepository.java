@@ -21,7 +21,7 @@ public interface IStudentRepository extends JpaRepository<Student, Integer>
 	
 	public List<Student> findByAddressCity(String city);
 	
-	public List<Student> findByLaptopBrandNameAndCityAndMarksGreaterThan(String brandName,String city,int marks);
+	public List<Student> findByLaptopBrandNameAndAddressCityAndMarksGreaterThan(String brandName,String city,int marks);
 	
 }
 
