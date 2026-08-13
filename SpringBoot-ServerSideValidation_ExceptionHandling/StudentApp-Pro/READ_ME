@@ -1,0 +1,11 @@
+STEP 1 : ADD Starter-Validation Dependency in POM.XML
+STEP 2 : ADD Server side Validation annotations like @NotNULL , @Black 
+          Note : make sure all annotations must belongs to Jakarta.validation package like 
+
+                  import jakarta.validation.constraints.Max;
+                  import jakarta.validation.constraints.Min;
+
+STEP 3 : ADD @valid annotation before @RequestBody during post operation 
+                  import jakarta.validation.Valid;
+
+STEP 4 : Add @ExceptionHandler in common exception handler class in our case its CGCExceptionHandler
