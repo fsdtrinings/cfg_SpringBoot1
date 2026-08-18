@@ -1,0 +1,81 @@
+{
+    "movieName": "Border 2",
+    "language": "Hindi",
+    "starCastName": [
+        "Sunny Deol",
+        "Varun Dhawan",
+        "Diljit Dosanjh"
+    ],
+    "releaseDate": "2026-01-23",
+    "status": true,
+    "ticketCost": 250,
+    "collection": 5000000
+}
+
+{
+    "movieName": "Chhaava",
+    "language": "Hindi",
+    "starCastName": [
+        "Vicky Kaushal",
+        "Rashmika Mandanna",
+        "Akshaye Khanna"
+    ],
+    "releaseDate": "2025-02-14",
+    "status": true,
+    "ticketCost": 250,
+    "collection": 450000000
+}
+{
+    "movieName": "Pushpa 2: The Rule",
+    "language": "Telugu",
+    "starCastName": [
+        "Allu Arjun",
+        "Rashmika Mandanna",
+        "Fahadh Faasil"
+    ],
+    "releaseDate": "2024-12-05",
+    "status": false,
+    "ticketCost": 300,
+    "collection": 1200000000
+}
+{
+    "movieName": "Pushpa 2: The Rule",
+    "language": "Hindi",
+    "starCastName": [
+        "Allu Arjun",
+        "Rashmika Mandanna",
+        "Fahadh Faasil"
+    ],
+    "releaseDate": "2024-12-05",
+    "status": false,
+    "ticketCost": 300,
+    "collection": 1200000000
+}
+{
+    "movieName": "Avatar: The Way of Water",
+    "language": "English",
+    "starCastName": [
+        "Sam Worthington",
+        "Zoe Saldana",
+        "Sigourney Weaver",
+        "Stephen Lang"
+    ],
+    "releaseDate": "2022-12-16",
+    "status": false,
+    "ticketCost": 450,
+    "collection": 1500000000
+}
+{
+    "movieName": "Carry On Jatta 3",
+    "language": "Punjabi",
+    "starCastName": [
+        "Gippy Grewal",
+        "Sonam Bajwa",
+        "Jaswinder Bhalla",
+        "Binnu Dhillon"
+    ],
+    "releaseDate": "2023-06-29",
+    "status": false,
+    "ticketCost": 200,
+    "collection": 100000000
+}
