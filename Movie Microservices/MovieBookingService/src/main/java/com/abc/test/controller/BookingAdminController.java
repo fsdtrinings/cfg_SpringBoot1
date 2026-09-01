@@ -1,39 +1,27 @@
 package com.abc.test.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abc.test.dto.BookingRequestDTO;
 import com.abc.test.dto.BookingResponseDTO;
 import com.abc.test.entity.BookingEntity;
 import com.abc.test.service.BookingService;
 
-
 //@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("user/bookings")
-public class BookingController {
+@RequestMapping("/admin/booking")
+public class BookingAdminController {
+
 	
 	@Autowired
 	BookingService bookingService;
 	
-	
-	@PostMapping
-    public int saveBooking(
-            @RequestBody BookingRequestDTO request) {
-
-        return bookingService.saveBooking(request);
-    }
 	
 	@GetMapping("/{id}")
     public BookingResponseDTO getBookingById(
@@ -41,5 +29,14 @@ public class BookingController {
 
         return bookingService.getBookingById(id);
     }
+	
+	@GetMapping("/moviename/{name}")
+    public List<BookingEntity> getBookingByMovieName(
+            @PathVariable String name) {
 
+        return bookingService.getBookingsByMovieName(name);
+    }
+	
+	
+	
 }

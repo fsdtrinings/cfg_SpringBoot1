@@ -91,15 +91,33 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public List<BookingEntity> getBookingsByMovieName(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		 // Step 1: Get Movie information from Movie Service
+	    MovieDTO movieDTO = feignClient.getMovieByName(movieName);
+
+	    if (movieDTO == null) {
+	        throw new RuntimeException(
+	                "Movie not found: " + movieName);
+	    }
+
+	    // Step 2: Extract movieId
+	    int movieId = movieDTO.getMovieId();
+
+	    // Step 3: Find all bookings for that movie
+	    return bookingRepo.findByMovieId(movieId);
 	}
 
 	@Override
-	public BookingEntity getBookingsByPhone(long phone) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BookingEntity> getBookingsByPhone(long phone) {
+		
+		return bookingRepo.findByUserPhone(phone);
 	}
 
+
+	@Override
+	public List<BookingEntity> getAllBookings() {
+		return bookingRepo.findAll();
+	}
+	
 	
 }

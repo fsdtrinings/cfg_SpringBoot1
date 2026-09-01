@@ -18,4 +18,6 @@ public interface MovieService {
     List<Movie> getAllMovies();
     
     public Movie getbyId(int id);
+    
+    public Movie getMovieByName(String name);
 }

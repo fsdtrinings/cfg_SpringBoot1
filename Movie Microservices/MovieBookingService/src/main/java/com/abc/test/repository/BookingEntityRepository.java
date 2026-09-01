@@ -12,6 +12,6 @@ public interface BookingEntityRepository extends JpaRepository<BookingEntity, In
 	
 	List<BookingEntity> findByMovieId(int movieId);
 
-    BookingEntity findByUserPhone(long userPhone);
+	List<BookingEntity> findByUserPhone(long userPhone);
 
 }

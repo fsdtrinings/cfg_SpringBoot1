@@ -13,8 +13,14 @@ import com.abc.test.dto.MovieDTO;
 @FeignClient(name = "MOVIE-SERVICE")
 public interface MovieFeignClient {
 
-	@GetMapping("/movies/{id}")
-   public MovieDTO getMovieById(@PathVariable("id")int id);
+	 @GetMapping("/admin/movies/{id}")
+	    MovieDTO getMovieById(
+	            @PathVariable("id") int id);
+
+
+	    @GetMapping("/admin/movies/name/{movieName}")
+	    MovieDTO getMovieByName(
+	            @PathVariable("movieName") String movieName);
 }
 
 

@@ -1,0 +1,33 @@
+package com.abc.test.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.abc.test.entity.Movie;
+import com.abc.test.service.MovieService;
+
+@RestController
+@RequestMapping("/users/movies")
+public class MovieUserServiceController {
+
+	@Autowired
+	MovieService movieService;
+
+	@GetMapping("/findall")
+	public List<Movie> getAll() {
+
+		return movieService.getAllMovies();
+	}
+
+	@GetMapping("/search/name/{movieName}")
+	public Movie getMovieByName(@PathVariable String movieName) {
+
+		return movieService.getMovieByName(movieName);
+
+	}
+}

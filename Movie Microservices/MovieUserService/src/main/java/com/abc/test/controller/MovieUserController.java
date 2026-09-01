@@ -1,6 +1,7 @@
 package com.abc.test.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,8 @@ import com.abc.test.entity.UserEntity;
 import com.abc.test.service.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users/profile")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MovieUserController {
 
 	@Autowired
@@ -37,7 +39,7 @@ public class MovieUserController {
 		else throw new RuntimeException("User not found "+phone+" & "+pass);
 	}
 	
-	@GetMapping("/{phone}")
+	@GetMapping("/search/{phone}")
 	public UserEntity getUserByPhone(@PathVariable long phone)
 	{
 		return userService.getUserById(phone);

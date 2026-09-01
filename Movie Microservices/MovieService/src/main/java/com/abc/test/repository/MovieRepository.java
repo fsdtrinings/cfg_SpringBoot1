@@ -7,4 +7,5 @@ import com.abc.test.entity.Movie;
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
+	public Movie findByMovieName(String movieName);
 }

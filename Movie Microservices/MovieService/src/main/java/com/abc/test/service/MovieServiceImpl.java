@@ -32,6 +32,14 @@ public class MovieServiceImpl implements MovieService {
 
 
 	@Override
+	public Movie getMovieByName(String name) {
+		return movieRepository.findByMovieName(name);
+	}
+
+
+
+
+	@Override
 	public Movie updateStatus(int movieId, boolean status) {
 		 Movie movie = movieRepository.findById(movieId)
 	                .orElseThrow(() ->

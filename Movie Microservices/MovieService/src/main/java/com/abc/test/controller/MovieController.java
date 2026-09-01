@@ -6,14 +6,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.abc.test.entity.Movie;
 import com.abc.test.service.MovieService;
 
 
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/admin/movies")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MovieController {
 
 	@Autowired
@@ -31,11 +32,7 @@ public class MovieController {
     }
     
     
-    @GetMapping("")
-    public List<Movie> getAll(){
-
-        return movieService.getAllMovies();
-    }
+   
    
     @PostMapping
     public Movie insertMovie(@RequestBody Movie movie) {
@@ -43,6 +40,17 @@ public class MovieController {
         return movieService.insertMovie(movie);
     }
 
+    @GetMapping("")
+    public List<Movie> getAll(){
+
+        return movieService.getAllMovies();
+    }
+    @GetMapping("/name/{movieName}")
+    public Movie getMovieByName(
+            @PathVariable String movieName) {
+
+        return movieService.getMovieByName(movieName);
+    }
     
     @PutMapping("/{movieId}/status")
     public Movie updateStatus(

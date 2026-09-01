@@ -18,7 +18,9 @@ public interface BookingService {
 	
 	public List<BookingEntity> getBookingsByMovieName(String movieName);
 	
-	public BookingEntity getBookingsByPhone(long phone);
+	public List<BookingEntity> getBookingsByPhone(long phone);
+	
+	public List<BookingEntity> getAllBookings();
 	
 
 }
